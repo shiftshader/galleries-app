@@ -1,32 +1,34 @@
 import React from 'react'
-import {Navbar,Nav, NavDropdown, Container} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
-export default function Navigation() {
+const Navigation=()=> {
   return (
-    <div><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-    <Container>
-    <Navbar.Brand href="#home">Galleries</Navbar.Brand>
-    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="me-auto">
-        <Nav.Link href="#features">Features</Nav.Link>
-        <Nav.Link href="#pricing">Pricing</Nav.Link>
-        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-      <Nav>
-        <Nav.Link href="#deets">Login</Nav.Link>
-        <Nav.Link eventKey={2} href="#memes">
-          Register
-        </Nav.Link>
-      </Nav>
-    </Navbar.Collapse>
-    </Container>
-  </Navbar></div>
+    
+   
+    <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <div className="container">
+    <Link className="navbar-brand" to="/">Galleries</Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarCollapse">
+      <ul className="navbar-nav me-auto mb-2 mb-md-0">
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+        </li>
+      </ul>
+      <ul className="navbar-nav me-auto mb-2 mb-md-0">
+        <li className="nav-item">
+          <Link className="nav-link" to="/login">Login</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/register">Register</Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   )
 }
+
+export default Navigation;
