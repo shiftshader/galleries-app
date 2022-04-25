@@ -2,8 +2,34 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const Navigation=()=> {
+
+  // const [user, setUser] = React.useState(false);
+  // const [formData, setFormData] = React.useState('')
+
+
+  // useEffect(()=>{
+  //    (
+  //      async () => {
+  //   const response = await fetch('http://localhost:8000/api/user', {
+  //         headers:{"content-type": "application/json",
+  //         'Accept': 'application/json'},
+  //         credentials: 'include',
+          
+  //       });
+  //       console.log('from request')
+  //       const content = await response.json();
+  //       console.log()
+  //     setUser(content)
+
+  //      }
+  //    )()
+  // },[]);
+
+
+
   return (
     
+   
    
     <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div className="container">

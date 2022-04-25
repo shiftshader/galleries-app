@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 export default function Register() {
 
@@ -12,6 +13,9 @@ export default function Register() {
             rePassword: "",
         }
     )
+
+    //redirect
+      const [redirect, setRedirect] = React.useState(false)
     //handle podataka iz inputa
     function handleChange(event) {
         const {name, value,} = event.target
@@ -23,14 +27,10 @@ export default function Register() {
         })
     }
 
+    async function handleSubmit(event) {
     //zaustavljanje refresh stranice
-
-  async function handleSubmit(event) {
       event.preventDefault();
     //   console.log(formData);
-      if(formData.password !== formData.rePassword){
-        return alert("Password Dont match")
-      }
       console.log({...formData})
         const response = await fetch('http://localhost:8000/api/register', {
             method: "POST",
@@ -39,11 +39,13 @@ export default function Register() {
             body: JSON.stringify({...formData})
             
         })
-        const content = await response.json();
-        console.log(content)
+        //redirect
+       setRedirect(prev=> prev = true)
     }
-
-
+      //redirect
+      if(redirect){
+        return <Redirect to="/login" />
+      }
 
   return (
     <div><main className="form-signin">
