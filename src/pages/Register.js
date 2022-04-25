@@ -5,8 +5,8 @@ export default function Register() {
     //postavljanje podataka iz inputa
    const [formData, setFormData] = React.useState(
         {
-            name: "", 
-            lastname: "", 
+            first_name: "", 
+            last_name: "", 
             email: "", 
             password: "",
             rePassword: "",
@@ -28,6 +28,9 @@ export default function Register() {
   async function handleSubmit(event) {
       event.preventDefault();
     //   console.log(formData);
+      if(formData.password !== formData.rePassword){
+        return alert("Password Dont match")
+      }
       console.log({...formData})
         const response = await fetch('http://localhost:8000/api/register', {
             method: "POST",
@@ -48,11 +51,11 @@ export default function Register() {
       <h1 className="h3 mb-3 fw-normal">Please Register</h1>
   
       <div className="form-floating">
-        <input onChange={handleChange} name="name" value={formData.name} type="text" className="form-control" id="floatingInput" placeholder="name@example.com" />
+        <input onChange={handleChange} name="first_name" value={formData.first_name} type="text" className="form-control" id="floatingInput" placeholder="name@example.com" />
         <label for="floatingInput">Name</label>
       </div>
       <div className="form-floating">
-        <input onChange={handleChange} name="lastname" value={formData.lastname} type="text" className="form-control" id="floatingInput" placeholder="name@example.com" />
+        <input onChange={handleChange} name="last_name" value={formData.last_name} type="text" className="form-control" id="floatingInput" placeholder="name@example.com" />
         <label for="floatingInput">Last Name</label>
       </div>
       <div className="form-floating">
